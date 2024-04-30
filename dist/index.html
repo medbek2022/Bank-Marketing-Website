@@ -27,11 +27,17 @@
           />
           <div class="right_block">
             <ul class="navbar_items">
-              <li class="item item1"><a href="">Features</a></li>
-              <li class="item item2"><a href="">Operations</a></li>
-              <li class="item item3"><a href="">Testimonials</a></li>
+              <li class="nav_item item1">
+                <a class="nav_link" href="#section_1">Features</a>
+              </li>
+              <li class="nav_item item2">
+                <a class="nav_link" href="#section_2">Operations</a>
+              </li>
+              <li class="nav_item item3">
+                <a class="nav_link" href="#section_3">Testimonials</a>
+              </li>
             </ul>
-            <button class="btn navbar_btn">Open account</button>
+            <button class="btn navbar_btn nav_link">Open account</button>
           </div>
         </div>
       </nav>
@@ -79,7 +85,7 @@
               <i class="icon fa-solid fa-globe"></i>
             </div>
             <h3 class="titel_description">100% digital bank</h3>
-            <p>
+            <p class="text_description">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
               optio rem voluptatem officia nemo velit excepturi sint dolor, quod
               sequi.
@@ -129,22 +135,58 @@
         </div>
 
         <div class="section_container">
-          <!-- Items Container -->
-          <div class="items">
-            <!-- The Big Item -->
-            <div class="big_item">
-              <!-- The Three colored Items -->
-              <div class="item yellow_item">01 Instant Trasfers</div>
-              <div class="item green_item">02 Instant Loans</div>
-              <div class="item red_item">03 Instant Closing</div>
-
-              <p class="big_circle">
-                <i class="fa-solid fa-comments-dollar"></i>
-              </p>
-              <p class="header">
+          <!-- Tabs_Container  -->
+          <div class="tabs_container">
+            <button class="tab_item tab_item--1 tab_item_active" data-tab="1">
+              01 Instant Trasfers
+            </button>
+            <button class="tab_item tab_item--2 data-tab=2" data-tab="2">
+              02 Instant Loans
+            </button>
+            <button class="tab_item tab_item--3 data-tab=3" data-tab="3">
+              03 Instant Closing
+            </button>
+          </div>
+          <!-- Content -->
+          <div class="content_container">
+            <div class="tab_content tab_content--1 tab_content--active">
+              <div class="tab_icon tab_icon--yellow">
+                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+              </div>
+              <p class="tab_header">
                 Tranfser money to anyone, instantly! No fees, no BS.
               </p>
-              <p class="text">
+              <p class="tab_text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
+
+            <div class="tab_content tab_content--2">
+              <div class="tab_icon tab_icon--green">
+                <i class="fa-solid fa-credit-card"></i>
+              </div>
+              <p class="tab_header">
+                Buy a home or make your dreams come true, with instant loans.
+              </p>
+              <p class="tab_text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quisquam labore autem est error itaque nihil tempore et dolore
+                architecto sequi. Possimus, quaerat sit quasi cumque perferendis
+                excepturi in molestias dolor?
+              </p>
+            </div>
+
+            <div class="tab_content tab_content--3">
+              <div class="tab_icon tab_icon--red">
+                <i class="fa-solid fa-credit-card"></i>
+              </div>
+              <p class="tab_header">
+                No longer need your account? No problem! Close it instantly.
+              </p>
+              <p class="tab_text">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -171,11 +213,26 @@
 
         <!-- Section container -->
         <div class="section_container">
-          <div class="items">
-            <button class="arrow_btn arrow_btn_left">←</button>
-            <button class="arrow_btn arrow_btn_right">→</button>
+          <div class="slider">
+            <div class="slide">
+              <p class="header">Best financial decision ever!</p>
+              <p class="user_experience">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Molestiae natus quo nihil nesciunt totam inventore in, numquam
+                optio eligendi, nobis ipsa pariatur doloribus assumenda commodi
+                ea culpa fuga dolorem. Nam, quae. Soluta, debitis quo magnam eos
+                commodi ut quas excepturi molestias nemo aliquid officia modi
+                cumque porro sed delectus fugit.
+              </p>
+              <div class="user">
+                <img class="user_img" src="images/user-1.jpg" alt="user_img" />
+                <p class="name">Miyah Miles</p>
+                <p class="location">London, UK</p>
+              </div>
+            </div>
 
-            <div class="big_item">
+            <!-- Slide 2 -->
+            <div class="slide">
               <p class="header">
                 The last step to becoming a complete minimalist
               </p>
@@ -187,19 +244,37 @@
                 commodi ut quas excepturi molestias nemo aliquid officia modi
                 cumque porro sed delectus fugit.
               </p>
-
               <div class="user">
-                <img class="user_img" src="images/user-1.jpg" alt="user_img" />
+                <img class="user_img" src="images/user-2.jpg" alt="user_img" />
                 <p class="name">Miyah Miles</p>
                 <p class="location">London, UK</p>
               </div>
+            </div>
 
-              <div class="threeDots">
-                <button class="dot dot_1 dot_active"></button>
-                <button class="dot dot_1"></button>
-                <button class="dot dot_1"></button>
+            <!-- Slide 3 -->
+            <div class="slide">
+              <p class="header">Finally free from old-school banks</p>
+              <p class="user_experience">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Molestiae natus quo nihil nesciunt totam inventore in, numquam
+                optio eligendi, nobis ipsa pariatur doloribus assumenda commodi
+                ea culpa fuga dolorem. Nam, quae. Soluta, debitis quo magnam eos
+                commodi ut quas excepturi molestias nemo aliquid officia modi
+                cumque porro sed delectus fugit.
+              </p>
+              <div class="user">
+                <img class="user_img" src="images/user-3.jpg" alt="user_img" />
+                <p class="name">Miyah Miles</p>
+                <p class="location">London, UK</p>
               </div>
             </div>
+          </div>
+          <button class="arrow_btn arrow_btn_left">←</button>
+          <button class="arrow_btn arrow_btn_right">→</button>
+          <div class="threeDots">
+            <button class="dot dot_active" data-slide="1"></button>
+            <button class="dot" data-slide="2"></button>
+            <button class="dot" data-slide="3"></button>
           </div>
         </div>
       </section>

@@ -31,6 +31,9 @@
 .special_word {
   position: relative;
 }
+.hidden {
+  display: none;
+}
 
 .special_word::after {
   display: block;
@@ -46,10 +49,11 @@
   background-image: var(--gradient-primary);
 }
 .section_container {
-  padding: 0rem 7rem;
   border-bottom: 1px solid #cbc8c8;
   margin-left: -2rem;
   margin-right: -2rem;
+  padding: 0rem 12rem;
+  padding-bottom: 9rem;
 }
 
 .icon {
@@ -72,13 +76,27 @@
 .circle_yellow {
   background-color: var(--color-secondary-darker);
 }
+.sticky {
+  position: fixed;
+  background: rgb(255, 255, 255, 0.9);
+}
 
 // Section Header
 .section_header {
-  padding: 4rem 0rem;
+  padding: 6rem 0rem;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+
   .header_container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+
     .section_subject {
       color: var(--color-primary);
       font-size: 1.5rem;
@@ -89,13 +107,10 @@
     }
   }
 }
-// Dot active
-
 // --------------- Some Global Stuffs ---------------
 #main_container {
   padding: 0rem 2rem;
 }
-
 body {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -116,30 +131,38 @@ li {
 // --------------- Navigation Bar  ---------------
 #navbar {
   .nav_container {
-    height: 15vh;
-    padding: 0rem 3rem;
+    height: 12vh;
+    width: 100%;
+    padding: 0rem 6rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin-left: -2rem;
+    margin-right: -2rem;
   }
   .navbar_logo {
-    width: 8rem;
+    width: 10rem;
     display: block;
+    transition: all 0.3s;
   }
   .right_block {
     display: flex;
     align-items: center;
     .navbar_items {
-      .item {
+      .nav_item {
         display: inline-block;
         margin-right: 3rem;
+        .nav_link {
+          transition: all 0.3s;
+        }
       }
     }
     .navbar_btn {
       display: block;
       background-color: var(--color-primary);
       width: 11rem;
+      height: 3.5rem;
       font-size: 1.1rem;
     }
   }
@@ -151,6 +174,10 @@ li {
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
+    padding: 0rem 7rem;
+    border-bottom: 1px solid #cbc8c8;
+    margin-left: -2rem;
+    margin-right: -2rem;
 
     .left_block {
       align-self: center;
@@ -186,8 +213,6 @@ li {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2rem;
-    padding: 0rem 12rem;
-    padding-bottom: 9rem;
 
     .img_description {
       align-self: center;
@@ -201,6 +226,9 @@ li {
       .titel_description {
         margin-bottom: 1rem;
       }
+      .text_description {
+        color: #757373;
+      }
     }
     .section_img {
       width: 100%;
@@ -211,81 +239,100 @@ li {
 // --------------- Section 2 ---------------
 #section_2 {
   .section_container {
-    padding-bottom: 9rem;
-    position: relative;
-    .items {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-      .big_item {
-        max-width: 1000px;
-        height: 300px;
-        padding: 4rem 2rem;
-        padding-bottom: 4rem;
-        background-color: #f3f3f3;
-        display: grid;
-        grid-gap: 0rem 2rem;
-        grid-template-columns: 0.5fr 5fr;
-        background-color: white;
-        position: relative;
+    .tabs_container {
+      background-color: white;
+      position: relative;
+      width: 100%;
+      min-width: 30rem;
+      max-width: 60rem;
+      height: 50px;
+      margin-top: 50px;
 
-        // The Three Colored Items
-        .item {
+      .tab_item {
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        width: 12rem;
+        top: -50%;
+        height: 2rem;
+        font-size: 1.2rem;
+        font-weight: 500;
+        height: 50px;
+        width: 27%;
+        border-radius: 50px;
+        transition: top 0.2s ease;
+      }
+
+      .tab_item--1 {
+        background-color: var(--color-secondary);
+        left: 9%;
+      }
+      .tab_item--2 {
+        background-color: var(--color-primary);
+        width: 24%;
+        left: 50%;
+        transform: translate(-50%);
+      }
+      .tab_item--3 {
+        background-color: var(--color-tertiary);
+        right: 9%;
+      }
+      .tab_item_active {
+        top: -60%;
+      }
+    }
+    .content_container {
+      min-width: 30rem;
+      max-width: 60rem;
+      background-color: white;
+      padding: 0.5rem 3rem 3rem 3rem;
+
+      .tab_content {
+        display: none;
+        grid-template-columns: 1fr 20fr;
+        grid-gap: 0.5rem 2rem;
+        .tab_icon {
           display: flex;
+          align-items: center;
           justify-content: center;
-          align-items: center;
-          cursor: pointer;
-          text-align: center;
-          width: 250px;
-          height: 50px;
-          position: absolute;
-          top: -20px;
-          border-radius: 70px;
-          font-weight: 700;
+          justify-self: center;
+          width: 75px;
+          height: 75px;
+          border-radius: 50px;
+          font-size: 1.6rem;
         }
-
-        .yellow_item {
-          background-color: var(--color-secondary);
-          left: 10%;
+        .tab_icon--yellow {
+          color: var(--color-secondary-darker);
+          background-color: var(--color-secondary-opacity);
         }
-        .green_item {
-          background-color: var(--color-primary);
-          left: 50%;
-          transform: translate(-50%);
-          width: 220px;
+        .tab_icon--green {
+          color: var(--color-primary-darker);
+          background-color: var(--color-primary-opacity);
         }
-        .red_item {
-          background-color: var(--color-tertiary);
-          right: 10%;
+        .tab_icon--red {
+          color: var(--color-tertiary-darker);
+          background-color: var(--color-tertiary-opacity);
         }
-
-        .big_circle {
-          background: var(--gradient-primary);
-          border-radius: 50%;
-          width: 70px;
-          height: 70px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          align-self: center;
-          font-size: 1.5rem;
-          color: #444;
-        }
-        .header {
-          display: flex;
-          align-items: center;
-          justify-content: start;
-          font-size: 1.5rem;
-          align-self: center;
-        }
-        .text {
+        .tab_header {
+          font-size: 1.3rem;
+          font-weight: 500;
           grid-column-start: 0;
           grid-column-end: 3;
-          font-size: 1.1rem;
           align-self: center;
+        }
+        .tab_text {
+          grid-column-start: 0;
+          grid-column-end: 3;
           color: #757373;
         }
+      }
+      .tab_content--active {
+        display: grid;
       }
     }
   }
@@ -293,41 +340,92 @@ li {
 // --------------- Section 3 ---------------
 #section_3 {
   .section_container {
-    border: none;
-    padding-bottom: 9rem;
-  }
-  .items {
     display: flex;
+
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
 
+    .slider {
+      width: 45rem;
+      margin: 0 auto;
+      position: relative;
+      height: 30rem;
+      overflow: hidden;
+
+      .slide {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        position: absolute;
+        transition: transform 0.7s ease;
+
+        .header {
+          font-size: 1.5rem;
+          font-weight: 450;
+          align-self: flex-start;
+          margin-bottom: 1rem;
+        }
+        .user_experience {
+          margin-bottom: 2rem;
+          color: #7c7b7b;
+          line-height: 2.2rem;
+          font-size: 1.1rem;
+        }
+        .user {
+          align-self: flex-start;
+          display: grid;
+          grid-gap: 0rem 1rem;
+          grid-template-columns: 1fr 8fr;
+          margin-left: 1.5rem;
+          margin-bottom: 3rem;
+          .user_img {
+            grid-row-start: 1;
+            grid-row-end: 3;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+          }
+          .name {
+            align-self: center;
+            font-size: 1.2rem;
+            font-weight: 500;
+          }
+          .location {
+            align-self: center;
+            color: #757373;
+            font-weight: 100;
+          }
+        }
+      }
+    }
     .arrow_btn {
-      width: 50px;
-      height: 50px;
+      cursor: pointer;
+      width: 60px;
+      height: 60px;
       border: none;
       font-size: 1.7rem;
       background-color: white;
       border-radius: 50%;
-      transform: translate(0, -50%);
-      cursor: pointer;
+      position: absolute;
+      top: 25%;
     }
     .arrow_btn_left {
-      position: absolute;
-      top: 0;
-      left: 15%;
-      top: 50%;
+      left: 18%;
     }
     .arrow_btn_right {
-      position: absolute;
-      top: 0;
-      right: 15%;
-      top: 50%;
+      right: 20%;
     }
 
     .threeDots {
-      position: relative;
-      bottom: 0;
+      position: absolute;
+      bottom: 30%;
+      left: 50%;
+      transform: translate(-50%, 0);
+
       .dot {
         border: none;
         width: 10px;
@@ -335,55 +433,10 @@ li {
         border-radius: 50%;
         background-color: #beb9b9;
         margin: 0rem 0.7rem;
+        cursor: pointer;
       }
       .dot_active {
         background-color: #757373;
-      }
-    }
-
-    .big_item {
-      max-width: 700px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: start;
-      padding: 1rem;
-
-      .header {
-        font-size: 1.5rem;
-        font-weight: 450;
-        align-self: flex-start;
-        margin-bottom: 1rem;
-      }
-      .user_experience {
-        margin-bottom: 2rem;
-        color: #757373;
-      }
-
-      .user {
-        display: grid;
-        grid-gap: 0rem 1rem;
-        grid-template-columns: 1fr 8fr;
-        margin-left: 1.5rem;
-        margin-bottom: 3rem;
-        .user_img {
-          grid-row-start: 1;
-          grid-row-end: 3;
-          width: 70px;
-          height: 70px;
-          border-radius: 50%;
-        }
-        .name {
-          align-self: center;
-          font-size: 1.2rem;
-          font-weight: 500;
-        }
-        .location {
-          align-self: center;
-          color: #757373;
-          font-weight: 100;
-        }
       }
     }
   }
